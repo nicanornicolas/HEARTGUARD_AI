@@ -17,6 +17,18 @@ HeartGuard AI is an intelligent health monitoring system that uses deep learning
 - **Docker Support**: Containerized deployment for easy setup
 - **Comprehensive Testing**: Unit tests for API endpoints and prediction logic
 
+## 📸 Screenshots
+
+### Dashboard Interface
+
+![HeartGuard AI Dashboard](docs/dashboard-screenshot.png)
+
+The interactive dashboard provides real-time monitoring with:
+- **Wearable Simulator**: Adjust heart rate and activity level to test the system
+- **Live Metrics**: View AI-predicted heart rate vs actual heart rate
+- **Anomaly Detection**: Visual alerts for WARNING and CRITICAL_ANOMALY statuses
+- **Heart Rate Chart**: Real-time visualization of heart rate trends over time
+
 ## 🏗️ Architecture
 
 ```
@@ -227,7 +239,7 @@ Key dependencies include:
 - **FastAPI**: Modern web framework for building APIs
 - **PyTorch**: Deep learning framework for LSTM model
 - **Streamlit**: Dashboard and visualization
-- **Scikit-learn**: Data preprocessing and scaling
+- **Scikit-learn 1.6.1**: Data preprocessing and scaling (version pinned for model compatibility)
 - **NumPy**: Numerical computations
 - **Pydantic**: Data validation
 - **Uvicorn**: ASGI server
@@ -274,7 +286,11 @@ services:
 
 1. **Data Requirements**: The API requires exactly 60 minutes of historical data (60 data points)
 2. **Model Artifacts**: Ensure `artifacts/` directory contains the trained model and scaler files
-3. **Production Use**: This is a demonstration system. For production use, consider:
+3. **Scikit-learn Version**: The scaler was pickled with scikit-learn 1.6.1. Ensure you install the exact version specified in `requirements.txt` to avoid version mismatch warnings. If you see warnings, run:
+   ```bash
+   pip install --upgrade -r requirements.txt
+   ```
+4. **Production Use**: This is a demonstration system. For production use, consider:
    - Additional security measures
    - Authentication and authorization
    - Rate limiting
@@ -288,11 +304,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📝 License
 
-[Specify your license here]
+[Apache 2.0 License]
 
 ## 👤 Author
 
-[Your name/Organization]
+[NICANOR NICOLAS/CleanTech-PRO.org]
 
 ## 🙏 Acknowledgments
 

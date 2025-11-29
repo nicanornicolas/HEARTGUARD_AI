@@ -6,7 +6,7 @@ import time
 
 
 # CONFIG
-API_URL = "https://127.0.0.1:8000/analyze"
+API_URL = "http://127.0.0.1:8000/analyze"
 st.set_page_config(page_title="HeartGuard AI Monitor", layout="wide")
 
 st.title("🫀 HeartGuard AI: Real-Time Telemetry")
@@ -54,11 +54,11 @@ try:
         col1, col2, col3 = st.columns(3)
 
         # Metric 1: Prediction
-        col1.metric("AI Predicted HR", f"{result['ai_predicted_heart_rate']} BPM")
+        col1.metric("AI Predicted HR", f"{result['predicted_safe_bpm']} BPM")
 
         # Metric 2: Actual
         col2.metric("Actual HR", f"{current_hr} BPM",
-        delta=round(current_hr - result['ai_predicted_heart_rate'], 1))
+        delta=round(current_hr - result['predicted_safe_bpm'], 1))
 
         # Metric 3: Status
         status = result['status']

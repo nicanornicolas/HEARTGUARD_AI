@@ -29,7 +29,7 @@ app = FastAPI()
 model = HealthLSTM(input_size=2)
 model.load_state_dict(torch.load(os.path.join(ARTIFACTS_DIR, 'health_model_v2.pth')))
 model.eval()
-scaler = joblib.load(os.path.join(ARTIFACTS_DIR,'health_scaler.pk1'))
+scaler = joblib.load(os.path.join(ARTIFACTS_DIR,'health_scaler.pkl'))
 
 class HealthRecord(BaseModel):
     heart_rate: float
